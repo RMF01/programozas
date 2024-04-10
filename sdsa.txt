@@ -1,4 +1,4 @@
-///Elso feladat
+///Elso feladat: ??? Mit csinált ?
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,4 +32,21 @@ int main()
 }
 
 
-///Masodik Feladat:
+///Masodik Feladat: Beleírt egy txt file-ba egy szöveget
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+int main()
+{
+    char s[]="Ez egy szoveg";
+    char z[]="Nem ezt a szoveget keresed";
+    int fileaz;
+    fileaz=open("./txt4.txt", O_CREAT | O_RDWR | O_TEXT | O_TRUNC, S_IREAD | S_IWRITE);
+    /*write(fileaz, s, (sizeof(S)));*/
+    write (fileaz, z, (sizeof(z)));
+    close(fileaz); //File bezárása
+    return 0;
+}
