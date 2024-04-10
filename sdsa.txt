@@ -50,3 +50,25 @@ int main()
     close(fileaz); //File bezárása
     return 0;
 }
+
+
+///Harmadik feladat:File-bol kiolvas
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+int main()
+
+{
+    char string[20]="Kezdeti";
+    int fileaz=-10;
+    fileaz=open("./text1.txt", O_RDONLY); //Megnyit olvasásra
+    printf("%s\n", &string[0]);
+    read(fileaz,&string[0], (12*sizeof(char)) ); //12db karaktert olvas a file-bol a tombbe
+    printf("%s\n",&string[0]);
+    close(fileaz);
+
+    return 0;
+}
